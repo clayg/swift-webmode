@@ -1,0 +1,28 @@
+<html>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" />
+<body>
+<div class="container">
+    <h1>Listing for {{ account }}</h1>
+    <table class="table">
+    <tr>
+        <th>name</th>
+        <th>object count</th>
+        <th>object bytes</th>
+    </tr>
+    {% for container in listing if not container.name.startswith('.') %}
+        <tr>
+            <td>
+            <a href="./{{ container['name'] }}/">{{ container['name'] }}</a>
+            </td>
+            <td>
+            {{ container['count'] }}
+            </td>
+            <td>
+            {{ container['bytes'] }}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+</body>
+</html>

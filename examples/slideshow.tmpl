@@ -1,0 +1,40 @@
+<html>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<style>
+body {
+  background-color: grey;
+}
+div.carousel {
+  margin-top: 50px;
+  width: 800px;
+  align: center;
+}
+</style>
+<body>
+<div class="container">
+<center>
+<div id="carousel-example" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    {% for obj in listing %}
+    {% if loop.index0 == 0 %}
+      <div class="item active">
+    {% else %}
+      <div class="item">
+    {% endif %}
+      <img width=800 src="./{{ obj.name }}">
+    </div>
+    {% endfor %}
+  </div>
+  <a class="left carousel-control" href="#carousel-example" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+</center>
+</div>
+</body>
+</html>
